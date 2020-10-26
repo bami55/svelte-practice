@@ -1,9 +1,11 @@
 <script>
+	import TailwindCss from './TailwindCss.svelte';
 	export let name;
 </script>
+<TailwindCss />
 
 <main>
-	<h1>Hello {name}!</h1>
+	<h1 class="bg-green-500">Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 </main>
 

@@ -2,6 +2,7 @@
 	import TailwindCss from './TailwindCss.svelte';
 	import { roundTime } from './stores/store';
 	import Round from './components/Rounds/Index.svelte';
+	import Movie from './components/Movies/Index.svelte';
 	export let name;
 </script>
 <TailwindCss />
@@ -11,6 +12,8 @@
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 	<Round />
 	<p>time is {$roundTime}.</p>
+	<hr>
+	<Movie />
 </main>
 
 <style>

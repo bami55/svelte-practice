@@ -8,5 +8,8 @@ export const roundTime = derived([bo, rounds, times], ([$bo, $rounds, $times]) =
   let _bo = $bo ? $bo : 0;
   let _rounds = $rounds ? $rounds : 0;
   let _times = $times ? $times : 0;
-  return _bo * _rounds * _times / 60;
+  let _roundTime = _bo * _rounds * _times;
+  let _hours = Math.floor(_roundTime / 60);
+  let _minutes = _roundTime % 60;
+  return `${_hours}時間${_minutes}分`;
 });

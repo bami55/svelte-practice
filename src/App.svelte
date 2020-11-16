@@ -3,17 +3,19 @@
 	import { roundTime } from './stores/store';
 	import Round from './components/Rounds/Index.svelte';
 	import Movie from './components/Movies/Index.svelte';
-	export let name;
+	export let initBo, initRounds, initTimes;
 </script>
 <TailwindCss />
 
 <main>
-	<h1 class="bg-green-500">Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-	<Round />
-	<p>time is {$roundTime}.</p>
-	<hr>
-	<Movie />
+	<div class="w-1/4 border border-gray-400 rounded">
+		<div class="m-4">
+			<div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">時間計算</div>
+			<Round initBo={initBo} initRounds={initRounds} initTimes={initTimes} />
+			<p class="mt-2 text-gray-600">合計 {$roundTime}</p>
+		</div>
+	</div>
+	<!-- <Movie /> -->
 </main>
 
 <style>
@@ -22,13 +24,6 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
 	}
 
 	@media (min-width: 640px) {

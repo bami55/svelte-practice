@@ -1,46 +1,27 @@
 <script>
 	import TailwindCss from './TailwindCss.svelte';
-	import { roundTime } from './stores/store';
-	import Round from './components/Rounds/Index.svelte';
-	import Schedule from './components/Schedule/Index.svelte';
-	import Movie from './components/Movies/Index.svelte';
-	export let initBo, initRounds, initTimes;
+	import Navbar from './views/Navbar.svelte';
+	import Sidebar from './views/Sidebar.svelte';
+	import Main from './views/Main.svelte';
+
+	export let title;
+
+	// ページ遷移
+	let page = 'Home';
+	const changePage = e => {
+		page = e.detail.page;
+	}
 </script>
 <TailwindCss />
 
-<main>
-	<div class="w-full flex flex-row">
-		<div class="w-1/4 mr-4">
-			<div class="border border-gray-400 rounded mb-4">
-				<div class="m-4">
-					<Round initBo={initBo} initRounds={initRounds} initTimes={initTimes} />
-					<p class="mt-2 text-gray-600">合計 {$roundTime}</p>
-				</div>
-			</div>
-		</div>
-		<div class="w-1/4">
-			<div class="border border-gray-400 rounded">
-				<div class="m-4">
-					<Schedule />
-				</div>
-			</div>
-		</div>
+<Navbar title={title} />
+
+<div class="bg-gray-100 fixed w-screen h-screen">
+	<div class="flex flex-row flex-wrap">
+		<Sidebar on:pageClick={changePage} />
+		<Main page={page} />
 	</div>
-	
-	<!-- <Movie /> -->
-</main>
-
+</div>
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+	
 </style>

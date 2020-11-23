@@ -1,6 +1,10 @@
 <script>
-  export let value;
-  value = (value === null || value === undefined) ? "" : value;
+  export let title, value;
+  title = title === null || title === undefined ? '' : title;
+  value = value === null || value === undefined ? '' : value;
 </script>
 
-<input type="text" value={value} />
+<div class="flex flex-col w-1/2">
+  <p class="font-bold text-sm">{title}</p>
+  <input type="text" {value} />
+</div>

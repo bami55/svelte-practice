@@ -1,3 +1,7 @@
+# Svelte 練習
+
+Svelte練習用。大会の試合スケジュール自動計算。
+
 *Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
 ---
